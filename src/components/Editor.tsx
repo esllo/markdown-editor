@@ -1,20 +1,18 @@
 import styled from '@emotion/styled';
 import useCodeMirror from '../hooks/useCodeMirror';
+import useShortcutLock from '../hooks/useShortcutLock';
 
 const EditorDiv = styled.div`
   flex: 0 0 50%;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
 `;
 
 const Editor = () => {
   const refContainer = useCodeMirror();
+  useShortcutLock();
 
-  const handleEditorClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLElement).className.includes('editor-wrap')) {
-      (document.getElementsByClassName('cm-content')[0] as HTMLElement)?.focus();
-    }
-  };
-
-  return <EditorDiv className="editor-wrap" onClick={handleEditorClick} ref={refContainer} />;
+  return <EditorDiv className="editor-wrap" ref={refContainer} />;
 };
 
 export default Editor;
