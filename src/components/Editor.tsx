@@ -6,6 +6,7 @@ const EditorDiv = styled.div`
   flex: 0 0 50%;
   border-right: 1px solid #ccc;
   box-sizing: border-box;
+  padding: 16px;
 `;
 
 const Editor = () => {

@@ -187,6 +187,18 @@ const syntaxHighlighting = HighlightStyle.define([
     fontSize: '1.2em',
     fontWeight: 'bold',
   },
+  {
+    tag: tags.strong,
+    fontWeight: 'bold',
+  },
+  {
+    tag: tags.emphasis,
+    fontStyle: 'italic',
+  },
+  {
+    tag: tags.strikethrough,
+    textDecoration: 'line-through',
+  },
 ]);
 
 interface HandleDocChange {
@@ -264,7 +276,7 @@ const createEditorState = (doc: string, handleDocChange: HandleDocChange) => {
       history(),
       highlightActiveLineGutter(),
       indentOnInput(),
-      lineNumbers(),
+      // lineNumbers(),
       bracketMatching(),
       syntaxHighlighting,
       markdown({
@@ -280,7 +292,7 @@ const createEditorState = (doc: string, handleDocChange: HandleDocChange) => {
       EditorView.theme({
         '.cm-content': {
           fontFamily:
-            '-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", 나눔고딕, "Nanum Gothic", "Noto Sans KR", sans-serif',
+            "Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif",
         },
       }),
     ],
